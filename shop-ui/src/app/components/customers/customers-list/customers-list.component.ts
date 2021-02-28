@@ -46,4 +46,8 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
+
+  onRowClick(customer: Customer) {
+    console.log('>>>>>>', customer);
+  }
 }
