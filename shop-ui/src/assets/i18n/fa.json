@@ -14,6 +14,7 @@
     "homepageBtnTooltip": "مدیریت لیست مشتریان",
     "customersListPage": {
       "pageTitle": "لیست مشتریان فروشگاه",
+      "filterCaption": "جستجوی اطلاعات مشتری",
       "table": {
         "customerName": "نام مشتری",
         "customerSurname": "نام خانوادگی",

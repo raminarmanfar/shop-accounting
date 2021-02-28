@@ -14,6 +14,7 @@
     "homepageBtnTooltip": "Customers List Management",
     "customersListPage": {
       "pageTitle": "Shop's Customers List",
+      "filterCaption": "Search customer information",
       "table": {
         "customerName": "Customer Name",
         "customerSurname": "Customer Surname",

@@ -9,6 +9,7 @@ import {tap} from "rxjs/operators";
 import {Customer} from "../../../models/customer.model";
 import {UtilService} from "../../../shared/services/util.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -66,7 +67,8 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  onRowClick(customer: Customer) {
-    console.log('>>>>>>', customer);
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 }

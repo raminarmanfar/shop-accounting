@@ -1,9 +1,19 @@
+<div class="text-center">
+  <h2>{{'customers.customersListPage.pageTitle' | translate}}</h2>
+</div>
+<div >
+  <mat-form-field class="full-width">
+    <mat-label>{{'customers.customersListPage.filterCaption' | translate}}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="{{'customers.customersListPage.filterCaption' | translate}}">
+  </mat-form-field>
+</div>
 <table mat-table matSort
        [dataSource]="dataSource" multiTemplateDataRows
        class="mat-elevation-z8">
   <span *ngFor="let column of displayedColumns">
   <ng-container matColumnDef="{{column}}" *ngIf="column !== 'actions'">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> {{'customers.customersListPage.table.' + column | translate}} </th>
+    <th mat-header-cell *matHeaderCellDef
+        mat-sort-header> {{'customers.customersListPage.table.' + column | translate}} </th>
     <td mat-cell *matCellDef="let element" [ngStyle]="{'text-align': textAlignment$ | async}"> {{element[column]}} </td>
   </ng-container>
     </span>
