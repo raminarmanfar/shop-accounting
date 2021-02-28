@@ -15,9 +15,13 @@
     "customersListPage": {
       "pageTitle": "لیست مشتریان فروشگاه",
       "table": {
-        "customerFullName": "نام مشتری",
-        "cellPhoneNumber": "شماره همراه",
+        "customerName": "نام مشتری",
+        "customerSurname": "نام خانوادگی",
+        "cellPhone": "شماره همراه",
+        "homePhone": "تلفن منزل",
+        "workPhone": "تلفن محل کار",
         "homeAddress": "آدرس منزل",
+        "workAddress": "آدرس محل کار",
         "description": "توضیحات"
       },
       "actionBtn": {

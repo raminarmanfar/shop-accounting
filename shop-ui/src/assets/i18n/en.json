@@ -15,9 +15,13 @@
     "customersListPage": {
       "pageTitle": "Shop's Customers List",
       "table": {
-        "customerFullName": "Customer Name",
-        "cellPhoneNumber": "Cell Phone Nr.",
+        "customerName": "Customer Name",
+        "customerSurname": "Customer Surname",
+        "cellPhone": "Cell Phone",
+        "homePhone": "Home Phone",
+        "workPhone": "Work Phone",
         "homeAddress": "Home Address",
+        "workAddress": "Work Address",
         "description": "Description"
       },
       "actionBtn": {

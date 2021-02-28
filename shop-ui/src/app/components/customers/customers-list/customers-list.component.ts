@@ -8,11 +8,26 @@ import {AppState} from "../../../ngxs/app.state";
 import {tap} from "rxjs/operators";
 import {Customer} from "../../../models/customer.model";
 import {UtilService} from "../../../shared/services/util.service";
+import {animate, state, style, transition, trigger} from "@angular/animations";
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+  description: string;
+}
 
 @Component({
   selector: 'app-customers-list',
   templateUrl: './customers-list.component.html',
-  styleUrls: ['./customers-list.component.scss']
+  styleUrls: ['./customers-list.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 export class CustomersListComponent implements OnInit, AfterViewInit {
   @Select(AppState.areCustomerLoaded) areCustomersLoaded$!: Observable<boolean>;
@@ -20,11 +35,13 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
 
   areCustomersLoadedSub: Subscription;
 
-  displayedColumns: string[] = ['customerFullName', 'cellPhone', 'homeAddress', 'description', 'actions'];
+  displayedColumns: string[] = ['customerName', 'customerSurname', 'homeAddress', 'cellPhone', 'actions'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatSort) sort: MatSort;
 
   textAlignment$ = this.utilService.getTextAlignment();
+  expandedElement: PeriodicElement | null;
+
   constructor(
     private store: Store,
     private utilService: UtilService
@@ -41,6 +58,8 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
         })
       )
       .subscribe(loaded => console.info('>>>customers loaded:', loaded));
+    this.customers$
+      .subscribe(customers => this.dataSource = new MatTableDataSource<Customer>(customers));
   }
 
   ngAfterViewInit() {
