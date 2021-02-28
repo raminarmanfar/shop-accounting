@@ -23,7 +23,8 @@
         "workPhone": "Work Phone",
         "homeAddress": "Home Address",
         "workAddress": "Work Address",
-        "description": "Description"
+        "description": "Description",
+        "noMatchingData": "No data matching the filter."
       },
       "actionBtn": {
         "preview": "Customer detail information",

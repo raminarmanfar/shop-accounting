@@ -23,7 +23,8 @@
         "workPhone": "تلفن محل کار",
         "homeAddress": "آدرس منزل",
         "workAddress": "آدرس محل کار",
-        "description": "توضیحات"
+        "description": "توضیحات",
+        "noMatchingData": "هیچ داده ای در جستجوی اعمال شده یافت نشد."
       },
       "actionBtn": {
         "preview": "نمایش جزئیات اطلاعات مشتری",

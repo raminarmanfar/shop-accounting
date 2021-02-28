@@ -9,14 +9,7 @@ import {tap} from "rxjs/operators";
 import {Customer} from "../../../models/customer.model";
 import {UtilService} from "../../../shared/services/util.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
-
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-  description: string;
-}
+import {MatPaginator} from "@angular/material/paginator";
 
 @Component({
   selector: 'app-customers-list',
@@ -39,9 +32,10 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['customerName', 'customerSurname', 'homeAddress', 'cellPhone', 'actions'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   textAlignment$ = this.utilService.getTextAlignment();
-  expandedElement: PeriodicElement | null;
+  expandedElement: Customer | null;
 
   constructor(
     private store: Store,
@@ -65,10 +59,15 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }
