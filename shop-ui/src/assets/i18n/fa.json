@@ -3,7 +3,7 @@
     "header": {
       "appTitle": "نرم افزار جامع مدیریت فروشگاه",
       "actionButtons": {
-        "user": "حساب کاربری",
+        "userAccount": "حساب کاربری",
         "list": "لیست",
         "changeLang": "تغییر زبان به انگلیسی"
       }

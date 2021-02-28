@@ -7,7 +7,6 @@ import {GetCustomers, SetActiveLanguage, SwitchActiveLanguage} from "./app.actio
 import {Observable, of} from "rxjs";
 import {map, tap} from "rxjs/operators";
 import {Language} from "../shared/models/enums/language.enum";
-import {UtilService} from "../shared/services/util.service";
 
 export class AppStateModel {
   constructor(
@@ -21,7 +20,7 @@ export class AppStateModel {
 @State<AppStateModel>({
   name: 'shop',
   defaults: {
-    activeLanguage: Language.EN,
+    activeLanguage: Language.FA,
     customers: [],
     areCustomersLoaded: false,
   },
@@ -30,7 +29,6 @@ export class AppStateModel {
 export class AppState {
   constructor(
     private customerService: CustomerService,
-    private utilService: UtilService,
     private router: Router
   ) {
   }
@@ -53,7 +51,12 @@ export class AppState {
   switchActiveLanguage({getState, setState}: StateContext<AppStateModel>): Observable<Language> {
     return of(getState()).pipe(
       map(currentState => {
-        const nextLanguage = this.utilService.getNextLanguage(currentState.activeLanguage);
+        let nextLanguage: Language;
+        switch (currentState.activeLanguage) {
+          case Language.EN: nextLanguage = Language.FA; break;
+          case Language.FA: nextLanguage = Language.EN; break;
+          default: nextLanguage = Language.EN;
+        }
         setState({
           ...currentState,
           activeLanguage: nextLanguage
