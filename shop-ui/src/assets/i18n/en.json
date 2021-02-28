@@ -1,0 +1,11 @@
+{
+  "appTitle": "Shopping Management App",
+  "customers": {
+    "homepageBtn": "Customers List",
+    "homepageBtnTooltip": "Customers List Management"
+  },
+  "salesManagement": {
+    "homepageBtn": "Sales Management",
+    "homepageBtnTooltip": "Sales List Management"
+  }
+}

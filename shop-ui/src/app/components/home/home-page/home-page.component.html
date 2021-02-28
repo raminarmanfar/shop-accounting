@@ -1,0 +1,15 @@
+<div class="row p-3">
+  <a class="col-6" routerLink="/customers-list">
+    <mat-card [matTooltip]="'customers.homepageBtnTooltip' | translate">
+      <mat-icon color="primary">groups</mat-icon>
+      <mat-card-title>{{'customers.homepageBtn' | translate}}</mat-card-title>
+    </mat-card>
+  </a>
+
+  <a class="col-6" routerLink="/shopping-management">
+    <mat-card [matTooltip]="'salesManagement.homepageBtnTooltip' | translate">
+      <mat-icon color="primary">receipt</mat-icon>
+      <mat-card-title>{{'salesManagement.homepageBtn' | translate}}</mat-card-title>
+    </mat-card>
+  </a>
+</div>

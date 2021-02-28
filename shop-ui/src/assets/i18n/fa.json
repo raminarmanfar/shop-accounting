@@ -1,0 +1,11 @@
+{
+  "appTitle": "نرم افزار جامع مدیریت فروشگاه",
+  "customers": {
+    "homepageBtn": "مدیریت لیست مشتریان",
+    "homepageBtnTooltip": "مدیریت لیست مشتریان"
+  },
+  "saleManagement": {
+    "homepageBtn": "مدیریت فروش",
+    "homepageBtnTooltip": "مدیریت فروش"
+  }
+}
