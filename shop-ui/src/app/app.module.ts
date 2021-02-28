@@ -17,6 +17,7 @@ import {HttpClientModule, HttpClient} from "@angular/common/http";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import { PageNotFoundComponent } from './components/home/page-not-found/page-not-found.component';
+import {environment} from "../environments/environment";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -35,7 +36,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     AppRoutingModule,
     AppMaterialsModule,
-    NgxsModule.forRoot([AppState]),
+    NgxsModule.forRoot([AppState], {developmentMode: !environment.production}),
     NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
     HttpClientModule,

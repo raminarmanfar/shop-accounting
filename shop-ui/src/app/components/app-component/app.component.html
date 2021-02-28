@@ -1,5 +1,5 @@
-<div [dir]="appDirection">
-  <app-header (changeLang)="onLanguageChange()"></app-header>
+<div [dir]="appTextDirection">
+  <app-header (changeTextDirection)="onLanguageChange($event)"></app-header>
   <div class="body-container">
     <router-outlet></router-outlet>
   </div>

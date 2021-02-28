@@ -5,6 +5,8 @@ import {Select, Store} from "@ngxs/store";
 import {SwitchActiveLanguage} from "../../../ngxs/app.action";
 import {AppState} from "../../../ngxs/app.state";
 import {Observable} from "rxjs";
+import {TranslateService} from "@ngx-translate/core";
+import {TextDirection} from "../../../shared/models/enums/text-direction.enum";
 
 @Component({
   selector: 'app-header',
@@ -12,16 +14,20 @@ import {Observable} from "rxjs";
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  @Output() changeLang = new EventEmitter<Language>();
+  @Output() changeTextDirection = new EventEmitter<TextDirection>();
   @Select(AppState.getActiveLanguage) activeLanguage$: Observable<Language>;
 
   constructor(
+    private translateService: TranslateService,
     private utilService: UtilService,
     private store: Store) {
   }
 
   changeLanguage() {
     this.store.dispatch(new SwitchActiveLanguage());
-    this.changeLang.emit();
+    this.activeLanguage$.subscribe(activeLanguage => {
+      this.translateService.use(activeLanguage);
+      this.changeTextDirection.emit(this.utilService.getDirection(activeLanguage));
+    });
   }
 }

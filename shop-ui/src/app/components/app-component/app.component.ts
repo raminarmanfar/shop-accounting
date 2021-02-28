@@ -16,7 +16,7 @@ import {Observable} from "rxjs";
 })
 export class AppComponent implements OnInit {
   availableLanguages = AppConfig.availableLanguages;
-  appDirection: TextDirection;
+  appTextDirection: TextDirection;
   @Select(AppState.getActiveLanguage) activeLanguage$: Observable<Language>;
 
   constructor(
@@ -31,15 +31,10 @@ export class AppComponent implements OnInit {
     this.store.dispatch(new GetActiveLanguage());
     const activeLanguage = await this.activeLanguage$.toPromise();
     this.translateService.setDefaultLang(activeLanguage);
-    this.onLanguageChange();
+    this.onLanguageChange(this.utilService.getDirection(activeLanguage));
   }
 
-  onLanguageChange() {
-    this.store.dispatch(new GetActiveLanguage());
-    this.activeLanguage$.subscribe(activeLanguage => {
-      this.translateService.use(activeLanguage);
-      this.appDirection = this.utilService.getDirection(activeLanguage);
-    });
-
+  onLanguageChange(textDirection: TextDirection) {
+      this.appTextDirection = textDirection;
   }
 }
