@@ -32,11 +32,16 @@ export class AppState {
     private router: Router
   ) {
   }
+
   @Selector()
   static getActiveLanguage(state: AppStateModel): Language {
     return state.activeLanguage;
   }
 
+  @Selector()
+  static getNextLanguage(state: AppStateModel): Language {
+    return state.activeLanguage === Language.EN ? Language.FA : Language.EN;
+  }
   @Selector()
   static getCustomersList(state: AppStateModel): Customer[] {
     return state.customers;
@@ -51,15 +56,9 @@ export class AppState {
   switchActiveLanguage({getState, setState}: StateContext<AppStateModel>): Observable<Language> {
     return of(getState()).pipe(
       map(currentState => {
-        let nextLanguage: Language;
-        switch (currentState.activeLanguage) {
-          case Language.EN: nextLanguage = Language.FA; break;
-          case Language.FA: nextLanguage = Language.EN; break;
-          default: nextLanguage = Language.EN;
-        }
         setState({
           ...currentState,
-          activeLanguage: nextLanguage
+          activeLanguage: AppState.getNextLanguage(currentState)
         })
         return currentState.activeLanguage;
       })

@@ -16,6 +16,7 @@ import {TextDirection} from "../../../shared/models/enums/text-direction.enum";
 export class HeaderComponent {
   @Output() changeTextDirection = new EventEmitter<TextDirection>();
   @Select(AppState.getActiveLanguage) activeLanguage$: Observable<Language>;
+  @Select(AppState.getNextLanguage) nextLanguage$: Observable<Language>;
 
   constructor(
     private translateService: TranslateService,
