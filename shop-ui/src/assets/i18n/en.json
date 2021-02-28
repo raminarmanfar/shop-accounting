@@ -1,8 +1,25 @@
 {
-  "appTitle": "Shopping Management App",
+  "common": {
+    "header": {
+      "appTitle": "Shopping Management App",
+      "actionButtons": {
+        "userAccount": "User account",
+        "list": "List",
+        "changeLang": "Change language to Persian"
+      }
+    }
+  },
   "customers": {
     "homepageBtn": "Customers List",
-    "homepageBtnTooltip": "Customers List Management"
+    "homepageBtnTooltip": "Customers List Management",
+    "customersListPage": {
+      "pageTitle": "Shop's Customers List",
+      "actionBtn": {
+        "preview": "Customer detail information",
+        "edit": "Edit customer information",
+        "delete": "Delete customer"
+      }
+    }
   },
   "salesManagement": {
     "homepageBtn": "Sales Management",

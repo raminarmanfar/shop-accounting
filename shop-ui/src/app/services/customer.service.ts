@@ -7,11 +7,11 @@ import {Customer} from "../models/customer.model";
 })
 export class CustomerService {
   private customers = [
-    new Customer(10, 'Ramin', 'Armanfar', new Date(), 'home-address-ramin', '09371001'),
-    new Customer(20, 'Amin', 'Armanfar', new Date(), 'home-address-amin', '09371002'),
-    new Customer(30, 'Roya', 'Armanfar', new Date(), 'home-address-roya', '09371003'),
-    new Customer(40, 'Hossein', 'Abddol', new Date(), 'home-address-hossein', '09371004'),
-    new Customer(50, 'Asiyeh', 'Izadi', new Date(), 'home-address-asiyeh', '09371005')
+    new Customer(10, 'رامین', 'آرمانفر', new Date(), 'آلمان خیابان امام', '09371001'),
+    new Customer(20, 'ابراهیم', 'لطفی', new Date(), 'شولیوند خیابان ایبو', '09371002'),
+    new Customer(30, 'مریم', 'ضابط', new Date(), 'میاندوآب خیابان انصار', '09371003'),
+    new Customer(40, 'افشین', 'پاشایی', new Date(), 'میاندوآب دانشگاه آزاد', '09371004'),
+    new Customer(50, 'آسیه', 'ایزدی', new Date(), 'میاندوآب کوی معلم', '09371005')
   ];
 
   constructor() { }

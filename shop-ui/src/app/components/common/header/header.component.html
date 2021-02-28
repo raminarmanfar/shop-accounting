@@ -1,12 +1,16 @@
 <mat-toolbar color="primary">
   <div routerLink="/home-page" class="header-label">
-    <span>{{ 'appTitle' | translate }}</span>
+    <span>{{ 'common.header.appTitle' | translate }}</span>
   </div>
   <span class="example-spacer"></span>
-  <button mat-icon-button matTooltip="User account">
+  <button mat-icon-button matTooltip="{{'common.header.actionButtons.userAccount' | translate}}">
     <mat-icon>person</mat-icon>
   </button>
-  <button mat-icon-button matTooltip="Menu">
+  <button mat-icon-button matTooltip="{{'common.header.actionButtons.list' | translate}}">
     <mat-icon>list</mat-icon>
+  </button>
+  <button mat-icon-button class="lang-btn" (click)="changeLanguage()"
+          matTooltip="{{'common.header.actionButtons.changeLang' | translate}}">
+    {{ activeLanguage$ | async | uppercase }}
   </button>
 </mat-toolbar>

@@ -1,10 +1,27 @@
 {
-  "appTitle": "نرم افزار جامع مدیریت فروشگاه",
+  "common": {
+    "header": {
+      "appTitle": "نرم افزار جامع مدیریت فروشگاه",
+      "actionButtons": {
+        "user": "حساب کاربری",
+        "list": "لیست",
+        "changeLang": "تغییر زبان به انگلیسی"
+      }
+    }
+  },
   "customers": {
     "homepageBtn": "مدیریت لیست مشتریان",
-    "homepageBtnTooltip": "مدیریت لیست مشتریان"
+    "homepageBtnTooltip": "مدیریت لیست مشتریان",
+    "customersListPage": {
+      "pageTitle": "لیست مشتریان فروشگاه",
+      "actionBtn": {
+        "preview": "نمایش جزئیات اطلاعات مشتری",
+        "edit": "ویرایش اطلاعات مشتری",
+        "delete": "حذف مشتری"
+      }
+    }
   },
-  "saleManagement": {
+  "salesManagement": {
     "homepageBtn": "مدیریت فروش",
     "homepageBtnTooltip": "مدیریت فروش"
   }
