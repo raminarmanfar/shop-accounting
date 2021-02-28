@@ -14,6 +14,12 @@
     "homepageBtnTooltip": "مدیریت لیست مشتریان",
     "customersListPage": {
       "pageTitle": "لیست مشتریان فروشگاه",
+      "table": {
+        "customerFullName": "نام مشتری",
+        "cellPhoneNumber": "شماره همراه",
+        "homeAddress": "آدرس منزل",
+        "description": "توضیحات"
+      },
       "actionBtn": {
         "preview": "نمایش جزئیات اطلاعات مشتری",
         "edit": "ویرایش اطلاعات مشتری",

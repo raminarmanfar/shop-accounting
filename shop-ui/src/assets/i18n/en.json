@@ -14,6 +14,12 @@
     "homepageBtnTooltip": "Customers List Management",
     "customersListPage": {
       "pageTitle": "Shop's Customers List",
+      "table": {
+        "customerFullName": "Customer Name",
+        "cellPhoneNumber": "Cell Phone Nr.",
+        "homeAddress": "Home Address",
+        "description": "Description"
+      },
       "actionBtn": {
         "preview": "Customer detail information",
         "edit": "Edit customer information",

@@ -20,7 +20,7 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
 
   areCustomersLoadedSub: Subscription;
 
-  displayedColumns: string[] = ['customerFullName', 'cellPhone', 'homeAddress', 'actions'];
+  displayedColumns: string[] = ['customerFullName', 'cellPhone', 'homeAddress', 'description', 'actions'];
   dataSource = new MatTableDataSource();
   @ViewChild(MatSort) sort: MatSort;
 

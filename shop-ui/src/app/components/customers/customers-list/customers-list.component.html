@@ -3,28 +3,48 @@
 </div>
 <table mat-table [dataSource]="customers$" matSort class="mat-elevation-z8">
 
-  <!-- Position Column -->
+  <!-- Full name Column -->
   <ng-container matColumnDef="customerFullName">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.customerName + ' ' + element.customerSurname}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      {{ 'customers.customersListPage.table.customerFullName' | translate }}
+    </th>
+    <td mat-cell *matCellDef="let element" [ngStyle]="{'text-align': textAlignment$ | async}">
+      {{element.customerName + ' ' + element.customerSurname}}
+    </td>
   </ng-container>
 
-  <!-- Name Column -->
+  <!-- Cell phone Column -->
   <ng-container matColumnDef="cellPhone">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Cell Phone Nr. </th>
-    <td mat-cell *matCellDef="let element"> {{element.cellPhone}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      {{ 'customers.customersListPage.table.cellPhoneNumber' | translate }}
+    </th>
+    <td mat-cell *matCellDef="let element" class="text-center"> {{element.cellPhone}} </td>
   </ng-container>
 
-  <!-- Weight Column -->
+  <!-- Home address Column -->
   <ng-container matColumnDef="homeAddress">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Home Address </th>
-    <td mat-cell *matCellDef="let element"> {{element.homeAddress}} </td>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      {{ 'customers.customersListPage.table.homeAddress' | translate }}
+    </th>
+    <td mat-cell *matCellDef="let element" [ngStyle]="{'text-align': textAlignment$ | async}">
+      {{element.homeAddress}}
+    </td>
+  </ng-container>
+
+  <!-- description Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+      {{ 'customers.customersListPage.table.description' | translate }}
+    </th>
+    <td mat-cell *matCellDef="let element" [ngStyle]="{'text-align': textAlignment$ | async}">
+      {{element.description}}
+    </td>
   </ng-container>
 
   <!-- actions Column -->
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
-    <td mat-cell *matCellDef="let element">
+    <td mat-cell *matCellDef="let element" [ngStyle]="{'text-align': textAlignment$ | async}">
       <button mat-icon-button color="primary" matTooltip="{{'customers.customersListPage.actionBtn.preview' | translate}}">
         <mat-icon>contact_page</mat-icon>
       </button>

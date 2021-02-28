@@ -9,6 +9,7 @@ export class Customer {
     public workAddress?: string,
     public homePhone?: string,
     public workPhone?: string,
+    public description?: string
   ) {
   }
 
