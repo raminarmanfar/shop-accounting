@@ -5,6 +5,8 @@ import {TextDirection} from "../models/enums/text-direction.enum";
 import {Select} from "@ngxs/store";
 import {Observable} from "rxjs";
 import {AppState} from "../../ngxs/app.state";
+import {TextAlignment} from "../models/enums/text-alignment.enum";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -26,11 +28,37 @@ export class UtilService {
     });
   }
 
-  public getDirection(language: Language): TextDirection {
-    switch (language) {
-      case Language.EN: return  TextDirection.LTR; break;
-      case Language.FA: return  TextDirection.RTL; break;
-      default: return TextDirection.LTR;
-    }
+  public getDirection(): Observable<TextDirection> {
+    return this.activeLanguage$.pipe(
+      map(activeLanguage => {
+        switch (activeLanguage) {
+          case Language.EN:
+            return TextDirection.LTR;
+            break;
+          case Language.FA:
+            return TextDirection.RTL;
+            break;
+          default:
+            return TextDirection.LTR;
+        }
+      })
+    );
+  }
+
+  public getTextAlignment(): Observable<TextAlignment> {
+    return this.activeLanguage$.pipe(
+      map(activeLanguage => {
+        switch (activeLanguage) {
+          case Language.EN:
+            return TextAlignment.LEFT;
+            break;
+          case Language.FA:
+            return TextAlignment.RIGHT;
+            break;
+          default:
+            return TextAlignment.LEFT;
+        }
+      })
+    );
   }
 }

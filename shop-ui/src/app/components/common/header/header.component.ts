@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {Language} from "../../../shared/models/enums/language.enum";
 import {UtilService} from "../../../shared/services/util.service";
 import {Select, Store} from "@ngxs/store";
@@ -28,7 +28,8 @@ export class HeaderComponent {
     this.store.dispatch(new SwitchActiveLanguage());
     this.activeLanguage$.subscribe(activeLanguage => {
       this.translateService.use(activeLanguage);
-      this.changeTextDirection.emit(this.utilService.getDirection(activeLanguage));
+      this.utilService.getDirection()
+        .subscribe(direction => this.changeTextDirection.emit(direction));
     });
   }
 }

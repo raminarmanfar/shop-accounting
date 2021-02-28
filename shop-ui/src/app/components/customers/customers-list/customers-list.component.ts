@@ -7,6 +7,7 @@ import {Observable, Subscription} from "rxjs";
 import {AppState} from "../../../ngxs/app.state";
 import {tap} from "rxjs/operators";
 import {Customer} from "../../../models/customer.model";
+import {UtilService} from "../../../shared/services/util.service";
 
 @Component({
   selector: 'app-customers-list',
@@ -21,10 +22,13 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['customerFullName', 'cellPhone', 'homeAddress', 'actions'];
   dataSource = new MatTableDataSource();
-
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private store: Store) {
+  textAlignment$ = this.utilService.getTextAlignment();
+  constructor(
+    private store: Store,
+    private utilService: UtilService
+  ) {
   }
 
   ngOnInit() {
