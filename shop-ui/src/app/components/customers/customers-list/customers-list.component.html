@@ -9,6 +9,7 @@
   </mat-form-field>
 </div>
 <div class="overflow-auto">
+  <mat-progress-bar mode="query" *ngIf="!(areCustomersLoaded$ | async)"></mat-progress-bar>
   <table mat-table matSort
          [dataSource]="dataSource" multiTemplateDataRows
          class="mat-elevation-z8 overflow-auto">

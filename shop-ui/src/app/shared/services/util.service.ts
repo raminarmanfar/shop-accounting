@@ -21,6 +21,9 @@ export class UtilService {
   constructor(private snackBar: MatSnackBar) {
   }
 
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
 
   openSnackBar(message: string, action: string, duration: number = 2000): void {
     this.snackBar.open(message, action, {

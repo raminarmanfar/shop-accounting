@@ -24,12 +24,18 @@
         "homeAddress": "Home Address",
         "workAddress": "Work Address",
         "description": "Description",
-        "noMatchingData": "No data matching the filter."
+        "noMatchingData": "No data matching in the customer list found."
       },
       "actionBtn": {
         "preview": "Customer detail information",
         "edit": "Edit customer information",
         "delete": "Delete customer"
+      },
+      "paginator": {
+        "itemPerPage": "Item per page",
+        "previousPage": "Previous page",
+        "nextPage": "Next page",
+        "range": "Range"
       }
     }
   },

@@ -10,6 +10,8 @@ import {Customer} from "../../../models/customer.model";
 import {UtilService} from "../../../shared/services/util.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {MatPaginator} from "@angular/material/paginator";
+import {TranslateParser, TranslateService} from "@ngx-translate/core";
+import {TranslatablePaginator} from "../../../shared/services/translatable-paginator";
 
 @Component({
   selector: 'app-customers-list',
@@ -36,11 +38,16 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
 
   textAlignment$ = this.utilService.getTextAlignment();
   expandedElement: Customer | null;
+  loading: boolean = false;
+
 
   constructor(
     private store: Store,
-    private utilService: UtilService
+    private utilService: UtilService,
+    private translate: TranslateService,
+    private translateParser: TranslateParser
   ) {
+
   }
 
   ngOnInit() {
@@ -54,12 +61,16 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
       )
       .subscribe(loaded => console.info('>>>customers loaded:', loaded));
     this.customers$
-      .subscribe(customers => this.dataSource = new MatTableDataSource<Customer>(customers));
+      .subscribe(customers => {
+        this.dataSource = new MatTableDataSource<Customer>(customers);
+        this.loading = false;
+      });
   }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+    this.paginator._intl = new TranslatablePaginator(this.translate, this.translateParser);
   }
 
   applyFilter(event: Event) {

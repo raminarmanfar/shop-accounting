@@ -24,12 +24,18 @@
         "homeAddress": "آدرس منزل",
         "workAddress": "آدرس محل کار",
         "description": "توضیحات",
-        "noMatchingData": "هیچ داده ای در جستجوی اعمال شده یافت نشد."
+        "noMatchingData": "هیچ داده ای در لیست مشتریان یافت نشد."
       },
       "actionBtn": {
         "preview": "نمایش جزئیات اطلاعات مشتری",
         "edit": "ویرایش اطلاعات مشتری",
         "delete": "حذف مشتری"
+      },
+      "paginator": {
+        "itemPerPage": "تعداد رکورد در هر صفحه",
+        "previousPage": "صفحه قبلی",
+        "nextPage": "صفحه بعدی",
+        "range": "تعویض ضفحه"
       }
     }
   },
