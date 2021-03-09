@@ -66,3 +66,9 @@ tr.example-detail-row {
 .full-width {
   width: 100%;
 }
+
+.mat-paginator-sticky {
+  bottom: 0px;
+  position: sticky;
+  z-index: 10;
+}

@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {HostListener, Injectable} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Language} from "../models/enums/language.enum";
 import {TextDirection} from "../models/enums/text-direction.enum";
@@ -23,6 +23,14 @@ export class UtilService {
 
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
+  @HostListener('window:resize', ['$event'])
+  public onResize(event?) {
+    return {
+      screenHeight: window.innerHeight,
+      screenWidth: window.innerWidth
+    };
   }
 
   openSnackBar(message: string, action: string, duration: number = 2000): void {

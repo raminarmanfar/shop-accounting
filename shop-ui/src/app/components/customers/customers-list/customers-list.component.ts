@@ -17,6 +17,9 @@ import {TranslatablePaginator} from "../../../shared/services/translatable-pagin
   selector: 'app-customers-list',
   templateUrl: './customers-list.component.html',
   styleUrls: ['./customers-list.component.scss'],
+  host: {
+    '(window:resize)': 'utilService.onResize()'
+  },
   animations: [
     trigger('detailExpand', [
       state('collapsed', style({height: '0px', minHeight: '0'})),
@@ -40,6 +43,9 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
   expandedElement: Customer | null;
   loading: boolean = false;
 
+  get screenHeight() {
+    return this.utilService.onResize().screenHeight - 185 + 'px';
+  }
 
   constructor(
     private store: Store,
@@ -63,14 +69,19 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
     this.customers$
       .subscribe(customers => {
         this.dataSource = new MatTableDataSource<Customer>(customers);
+        this.assignPaginator();
         this.loading = false;
       });
   }
 
   ngAfterViewInit() {
+    this.assignPaginator();
+    this.paginator._intl = new TranslatablePaginator(this.translate, this.translateParser);
+  }
+
+  private assignPaginator() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
-    this.paginator._intl = new TranslatablePaginator(this.translate, this.translateParser);
   }
 
   applyFilter(event: Event) {

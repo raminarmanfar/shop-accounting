@@ -11,10 +11,6 @@ export class CustomerService {
 
   constructor(private http: HttpClient) { }
 
-  delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-  }
-
   getAllCustomers(): Observable<Customer[]> {
     return this.http.get<Customer[]>('/api/customers/');
   }
