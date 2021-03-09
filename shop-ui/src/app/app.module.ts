@@ -20,6 +20,7 @@ import {PageNotFoundComponent} from './components/home/page-not-found/page-not-f
 import {environment} from "../environments/environment";
 import {MatPaginatorIntl} from "@angular/material/paginator";
 import {TranslatablePaginator} from "./shared/services/translatable-paginator";
+import { CustomerDetailComponent } from './components/customers/customer-detail/customer-detail.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -31,7 +32,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CustomersListComponent,
     HomePageComponent,
     HeaderComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    CustomerDetailComponent
   ],
   imports: [
     BrowserModule,

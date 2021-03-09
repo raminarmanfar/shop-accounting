@@ -2,11 +2,13 @@ import {HostListener, Injectable} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Language} from "../models/enums/language.enum";
 import {TextDirection} from "../models/enums/text-direction.enum";
-import {Select} from "@ngxs/store";
+import {Select, Store} from "@ngxs/store";
 import {Observable} from "rxjs";
 import {AppState} from "../../ngxs/app.state";
 import {TextAlignment} from "../models/enums/text-alignment.enum";
 import {map} from "rxjs/operators";
+import {SwitchActiveLanguage} from "../../ngxs/app.action";
+import {TranslateService} from "@ngx-translate/core";
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +20,14 @@ export class UtilService {
     return this.activeLanguage$;
   }
 
-  constructor(private snackBar: MatSnackBar) {
+  constructor(
+    private store: Store,
+    private snackBar: MatSnackBar,
+    private translateService: TranslateService) {
   }
 
   delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   @HostListener('window:resize', ['$event'])
@@ -37,6 +42,13 @@ export class UtilService {
     this.snackBar.open(message, action, {
       duration,
     });
+  }
+
+  switchActiveLanguage() {
+    this.store.dispatch(new SwitchActiveLanguage());
+    this.activeLanguage$.subscribe(activeLanguage =>
+      this.translateService.use(activeLanguage)
+    );
   }
 
   public getDirection(): Observable<TextDirection> {

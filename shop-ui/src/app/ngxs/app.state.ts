@@ -7,6 +7,7 @@ import {GetCustomers, SetActiveLanguage, SwitchActiveLanguage} from "./app.actio
 import {Observable, of} from "rxjs";
 import {map, tap} from "rxjs/operators";
 import {Language} from "../shared/models/enums/language.enum";
+import {TextDirection} from "../shared/models/enums/text-direction.enum";
 
 export class AppStateModel {
   constructor(

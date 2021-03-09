@@ -37,6 +37,12 @@
         "nextPage": "صفحه بعدی",
         "range": "تعویض ضفحه"
       }
+    },
+    "customerEditPage": {
+      "title": "اطلاعات مشتری",
+      "subtitle": "ویرایش اطلاعات",
+      "saveBtn": "ذخیره",
+      "cancelBtn": "لغو"
     }
   },
   "salesManagement": {

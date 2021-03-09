@@ -12,6 +12,8 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 import {MatPaginator} from "@angular/material/paginator";
 import {TranslateParser, TranslateService} from "@ngx-translate/core";
 import {TranslatablePaginator} from "../../../shared/services/translatable-paginator";
+import {MatDialog} from "@angular/material/dialog";
+import {CustomerDetailComponent} from "../customer-detail/customer-detail.component";
 
 @Component({
   selector: 'app-customers-list',
@@ -51,7 +53,8 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
     private store: Store,
     private utilService: UtilService,
     private translate: TranslateService,
-    private translateParser: TranslateParser
+    private translateParser: TranslateParser,
+    private dialog: MatDialog
   ) {
 
   }
@@ -91,5 +94,13 @@ export class CustomersListComponent implements OnInit, AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  onEdit() {
+    this.dialog.open(CustomerDetailComponent, {
+      data: {
+        translatePrefix: 'customers.customerEditPage.',
+      }
+    });
   }
 }

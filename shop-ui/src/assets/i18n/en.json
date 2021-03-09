@@ -37,6 +37,12 @@
         "nextPage": "Next page",
         "range": "Range"
       }
+    },
+    "customerEditPage": {
+      "title": "Customer information",
+      "subtitle": "Edit customer",
+      "saveBtn": "SAVE",
+      "cancelBtn": "CANCEL"
     }
   },
   "salesManagement": {
